@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="tab-bar">
+    <button class="tab active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="youtube">YouTube</button>
+    <button class="tab" data-tab="meta">Meta</button>
+    <button class="tab" data-tab="tiktok">TikTok</button>
+    <button class="tab" data-tab="ctv">CTV</button>
+  </div>
+
+  <div class="frame-container">
+
+    <!-- OVERVIEW TAB -->
+    <div id="overview" class="dashboard active overview-panel">
+      <div class="ov-header">
+        <div class="ov-title">Campaign Overview</div>
+        <div class="ov-date">01 Jan '26 &nbsp;–&nbsp; 03 Mar '26</div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">Budget</div>
+          <div class="kpi-value">INR 6.7M</div>
+          <div class="kpi-sub">Booked INR 6.7M</div>
+          <div class="kpi-delta positive">100.83%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Impressions</div>
+          <div class="kpi-value">55.9M</div>
+          <div class="kpi-sub">Booked 55.54M</div>
+          <div class="kpi-delta positive">100.63%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">CPM</div>
+          <div class="kpi-value">INR 120.0</div>
+          <div class="kpi-sub">&nbsp;</div>
+          <div class="kpi-delta">&nbsp;</div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="kpi-label">Comp. Views</div>
+          <div class="kpi-value">48.8M</div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="kpi-label">VCR</div>
+          <div class="kpi-value">87.38%</div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="kpi-label">Clicks</div>
+          <div class="kpi-value">39.6K</div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="kpi-label">CTR</div>
+          <div class="kpi-value">0.07%</div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="kpi-label">Reach</div>
+          <div class="kpi-value">37.0M</div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="kpi-label">Frequency</div>
+          <div class="kpi-value">1.51</div>
+        </div>
+      </div>
+
+      <!-- Charts + Scorecard row -->
+      <div class="mid-row">
+        <div class="donut-card">
+          <div class="donut-title">Impression share by Device</div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 120 120" class="donut-svg">
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#2a2a2a" stroke-width="18"/>
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#4ade80" stroke-width="18"
+                stroke-dasharray="283" stroke-dashoffset="0" stroke-linecap="round"/>
+            </svg>
+            <div class="donut-center">8.6m<br/><span>100%</span></div>
+          </div>
+          <div class="donut-legend"><span class="dot green"></span> Connected TV</div>
+        </div>
+
+        <div class="donut-card">
+          <div class="donut-title">Impressions share by Age Group</div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 120 120" class="donut-svg">
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#2a2a2a" stroke-width="18"/>
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#4ade80" stroke-width="18"
+                stroke-dasharray="283" stroke-dashoffset="0"/>
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#22c55e" stroke-width="18"
+                stroke-dasharray="120" stroke-dashoffset="-120"/>
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#86efac" stroke-width="18"
+                stroke-dasharray="50" stroke-dashoffset="-240"/>
+            </svg>
+            <div class="donut-center">55.9m</div>
+          </div>
+          <div class="donut-legend">
+            <span class="dot green"></span> 25-34 &nbsp;
+            <span class="dot mid"></span> 35-44 &nbsp;
+            <span class="dot light"></span> 45-54
+          </div>
+        </div>
+
+        <div class="scorecard">
+          <div class="sc-title">Creative Scorecard: Tactics and KPIs</div>
+          <div class="sc-name">Name: Swaad ke Liye Kuch Bhi Karega</div>
+          <div class="sc-kpi-row">
+            <div class="sc-kpi">
+              <div class="sc-kpi-label">Primary KPI</div>
+              <div class="sc-kpi-val big">VCR</div>
+            </div>
+            <div class="sc-kpi">
+              <div class="sc-kpi-label">Benchmark</div>
+              <div class="sc-kpi-val">75.00%</div>
+            </div>
+            <div class="sc-kpi">
+              <div class="sc-kpi-label">Achieved (%)</div>
+              <div class="sc-kpi-val green-text">87.38% <span class="arrow-up">▲ 16.50%</span></div>
+            </div>
+          </div>
+          <div class="sc-note">The top Tactic was 'Channels', based on the highest Impressions, achieving 87.49% VCR.</div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
+        <div class="table-tabs">
+          <span class="t-tab active">Daily</span>
+          <span class="t-tab">Monthly</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Impressions</th>
+              <th>Completed Views</th>
+              <th>VCR</th>
+              <th>Clicks</th>
+              <th>CTR</th>
+              <th>Budget Consumed (INR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>01 Jan 26</td><td>3,496</td><td>3,064</td><td>87.64%</td><td>2</td><td>0.06%</td><td>419.5</td></tr>
+            <tr><td>02 Jan 26</td><td>373,433</td><td>315,522</td><td>84.49%</td><td>264</td><td class="highlight-cell">0.07%</td><td>44,812.0</td></tr>
+            <tr><td>03 Jan 26</td><td>636,534</td><td>534,991</td><td>84.05%</td><td>423</td><td>0.07%</td><td>76,384.1</td></tr>
+            <tr><td>04 Jan 26</td><td>554,271</td><td>468,730</td><td>84.57%</td><td>312</td><td>0.06%</td><td>66,512.4</td></tr>
+            <tr><td>05 Jan 26</td><td>712,890</td><td>621,445</td><td>87.18%</td><td>498</td><td>0.07%</td><td>85,546.8</td></tr>
+            <tr><td>06 Jan 26</td><td>489,102</td><td>421,337</td><td>86.14%</td><td>341</td><td>0.07%</td><td>58,692.2</td></tr>
+            <tr><td>07 Jan 26</td><td>823,456</td><td>718,901</td><td>87.31%</td><td>576</td><td>0.07%</td><td>98,814.7</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PLATFORM IFRAMES -->
+    <div id="youtube" class="iframe-wrapper">
+      <iframe src="https://app.powerbi.com/view?r=eyJrIjoiYmYzYmJmMjAtNzZlOS00OGFjLTkwNjEtZWE4NTZiZTFjMTNkIiwidCI6IjA0YjQ2NzEwLTU2NTktNGY0Mi04M2FhLTllYTUzMjhkYjJjNSJ9" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="meta" class="iframe-wrapper">
+      <iframe src="https://app.powerbi.com/view?r=eyJrIjoiYWY2MzE5M2YtMWJlZS00N2Q4LWE2MjItOWM4Zjg1MmViYmRmIiwidCI6IjA0YjQ2NzEwLTU2NTktNGY0Mi04M2FhLTllYTUzMjhkYjJjNSJ9" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="tiktok" class="iframe-wrapper">
+      <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMTU3NGM3ODItODA4Yy00YmIxLWE3NWQtOTRiZDc4YWNiZDJmIiwidCI6IjA0YjQ2NzEwLTU2NTktNGY0Mi04M2FhLTllYTUzMjhkYjJjNSJ9" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="ctv" class="iframe-wrapper">
+      <iframe src="https://app.powerbi.com/view?r=eyJrIjoiN2Q5NGNmMjYtZDc5YS00YTQxLWEwMGMtNmYyNTEwMWI4MjY3IiwidCI6IjA0YjQ2NzEwLTU2NTktNGY0Mi04M2FhLTllYTUzMjhkYjJjNSJ9" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

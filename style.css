@@ -1,0 +1,296 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: #e0e0e0;
+}
+
+/* ── Tab Bar ── */
+.tab-bar {
+  display: flex;
+  height: 48px;
+  background: #1a1a1a;
+  border-bottom: 2px solid #2a2a2a;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.tab {
+  padding: 13px 26px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tab:hover { color: #fff; }
+.tab.active { color: #fff; border-bottom: 3px solid #e63946; }
+
+/* ── Tab Bar fixed height ── */
+.tab-bar {
+  height: 48px;
+}
+
+/* ── Frame Container ── */
+.frame-container {
+  height: calc(100vh - 48px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* iframe wrapper clips the Power BI bottom ribbon */
+.iframe-wrapper {
+  display: none;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.iframe-wrapper.active { display: block; }
+
+.iframe-wrapper iframe {
+  width: calc(100% / 0.73);
+  height: calc((100% + 48px) / 0.73);
+  border: none;
+  display: block;
+  transform: scale(0.73);
+  transform-origin: top left;
+}
+
+.dashboard {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0; left: 0;
+}
+.dashboard.active { display: block; }
+
+/* ── Overview Panel ── */
+.overview-panel {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 24px;
+  background: #111;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+.overview-panel.active {
+  display: flex;
+}
+
+.ov-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.ov-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+.ov-date {
+  font-size: 13px;
+  color: #888;
+}
+
+/* ── KPI Row ── */
+.kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.kpi-card {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-width: 110px;
+  flex: 1;
+}
+.kpi-card.highlight {
+  background: #1a2a1a;
+  border-color: #2d4a2d;
+}
+.kpi-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
+}
+.kpi-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+.kpi-sub {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+}
+.kpi-delta {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+.kpi-delta.positive { color: #4ade80; }
+
+/* ── Mid Row ── */
+.mid-row {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.donut-card {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 14px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.donut-title {
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+}
+.donut-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.donut-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 11px;
+  color: #ccc;
+  line-height: 1.3;
+}
+.donut-legend {
+  font-size: 11px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.dot {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+}
+.dot.green { background: #4ade80; }
+.dot.mid   { background: #22c55e; }
+.dot.light { background: #86efac; }
+
+/* ── Scorecard ── */
+.scorecard {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 16px 20px;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sc-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ccc;
+  border-bottom: 1px solid #2a2a2a;
+  padding-bottom: 8px;
+}
+.sc-name {
+  font-size: 12px;
+  color: #888;
+}
+.sc-kpi-row {
+  display: flex;
+  gap: 24px;
+}
+.sc-kpi { display: flex; flex-direction: column; gap: 4px; }
+.sc-kpi-label { font-size: 11px; color: #666; text-transform: uppercase; }
+.sc-kpi-val {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+.sc-kpi-val.big { color: #4ade80; }
+.green-text { color: #4ade80; }
+.arrow-up { font-size: 14px; color: #4ade80; }
+.sc-note {
+  font-size: 12px;
+  color: #666;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 8px;
+}
+
+/* ── Table ── */
+.table-wrap {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table-tabs {
+  display: flex;
+  border-bottom: 1px solid #2a2a2a;
+  padding: 0 12px;
+}
+.t-tab {
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.t-tab.active {
+  color: #fff;
+  border-bottom: 2px solid #e63946;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+thead tr { background: #222; }
+th {
+  padding: 10px 14px;
+  text-align: left;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+}
+td {
+  padding: 9px 14px;
+  border-top: 1px solid #222;
+  color: #ccc;
+}
+tbody tr:hover { background: #1f1f1f; }
+.highlight-cell { color: #4ade80; font-weight: 600; }
